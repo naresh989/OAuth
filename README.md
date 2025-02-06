@@ -21,5 +21,5 @@ A TypeScript implementation of an OAuth 2.0 authorization server supporting Auth
 
 1. **Fork the repository**
    ```bash
-   git clone https://github.com/[your-username]/oauth-server.git
-   cd oauth-server    
+   git clone https://github.com//oauth-server.git
+   cd OAuth    
