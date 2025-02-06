@@ -1,0 +1,28 @@
+{
+  "name": "oauthts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"ts-node-dev src/oauth-server.ts\" \"ts-node-dev src/client-server.ts\"",
+    "dev": "ts-node src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@types/node": "^22.13.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "jose": "^5.9.6",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "concurrently": "^9.1.2",
+    "ts-node-dev": "^2.0.0"
+  }
+}
