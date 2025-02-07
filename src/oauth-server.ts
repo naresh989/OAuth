@@ -1,3 +1,4 @@
+// oauth-server.ts
 import express from 'express';
 import bodyParser from 'body-parser';
 import { SignJWT } from 'jose';
@@ -25,20 +26,54 @@ async function initializeSecret() {
   secret = await generateSecret('HS256') as Uint8Array;
 }
 
+function redirectWithError(
+  res: express.Response,
+  uri: any,
+  error: string,
+  description: string,
+  state?: string
+) {
+  const url = new URL(uri || validRedirectUri);
+  url.searchParams.set('error', error);
+  url.searchParams.set('error_description', description);
+  if (state) {
+    url.searchParams.set('state', state);
+  }
+  return res.redirect(url.toString());
+}
+
 app.get('/api/oauth/authorize', (req, res) => {
   const { response_type, client_id, redirect_uri, state } = req.query;
 
   // Validate parameters
   if (response_type !== 'code') {
-    return redirectWithError(res, redirect_uri, 'invalid_request', 'response_type must be code');
+    return redirectWithError(
+      res,
+      redirect_uri,
+      'invalid_request',
+      'response_type must be code',
+      state?.toString()
+    );
   }
 
   if (client_id !== validClientId) {
-    return redirectWithError(res, redirect_uri, 'invalid_client', 'Invalid client ID');
+    return redirectWithError(
+      res,
+      redirect_uri,
+      'invalid_client',
+      'Invalid client ID',
+      state?.toString()
+    );
   }
 
   if (redirect_uri !== validRedirectUri) {
-    return redirectWithError(res, redirect_uri, 'invalid_request', 'Invalid redirect URI');
+    return redirectWithError(
+      res,
+      redirect_uri,
+      'invalid_request',
+      'Invalid redirect URI',
+      state?.toString()
+    );
   }
 
   // Generate authorization code
@@ -95,13 +130,6 @@ app.post('/api/oauth/token', async (req, res) => {
     refresh_token: refreshToken
   });
 });
-
-function redirectWithError(res: express.Response, uri: any, error: string, description: string) {
-  const url = new URL(uri || validRedirectUri);
-  url.searchParams.set('error', error);
-  url.searchParams.set('error_description', description);
-  return res.redirect(url.toString());
-}
 
 async function startServer() {
   await initializeSecret();
