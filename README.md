@@ -2,15 +2,6 @@
 
 A TypeScript implementation of an OAuth 2.0 authorization server supporting Authorization Code flow and Refresh Tokens.
 
-## Features
-
-- Authorization Code grant type
-- Refresh Token grant type
-- JWT access tokens
-- State parameter support
-- CSRF protection
-- Token expiration and validation
-
 ## Prerequisites
 
 - Node.js v18+
@@ -22,4 +13,8 @@ A TypeScript implementation of an OAuth 2.0 authorization server supporting Auth
 1. **Fork the repository**
    ```bash
    git clone https://github.com/naresh989/OAuth.git
-   cd OAuth    
+   cd OAuth
+2. **To start the server**
+   ```bash
+   npm install
+   npm start  
