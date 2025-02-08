@@ -20,5 +20,7 @@ A TypeScript implementation of an OAuth 2.0 authorization server supporting Auth
    npm install
    npm start  
 
-Get Endpoint : <img width="482" alt="image" src="https://github.com/user-attachments/assets/8f791160-12cc-45c0-8167-43a1ee0d3dac" />
-Post Endpoint : <img width="484" alt="image" src="https://github.com/user-attachments/assets/78a0558d-afda-49b9-bf85-fd756e1f988e" />
+Get Endpoint : 
+<img width="482" alt="image" src="https://github.com/user-attachments/assets/8f791160-12cc-45c0-8167-43a1ee0d3dac" />
+Post Endpoint : 
+<img width="484" alt="image" src="https://github.com/user-attachments/assets/78a0558d-afda-49b9-bf85-fd756e1f988e" />
