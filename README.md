@@ -1,6 +1,6 @@
 # OAuth 2.0 Server Implementation
 
-A TypeScript implementation of an OAuth 2.0 authorization server supporting Authorization Code flow and Refresh Tokens.Added state suppport also,just add state in params in get request and in body of post reques 
+A TypeScript implementation of an OAuth 2.0 authorization server supporting Authorization Code flow and Refresh Tokens.Added state suppport also,just add state in params in get request and in body of post request. 
 
 ## Prerequisites
 
